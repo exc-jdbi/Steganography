@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPublishable>False</IsPublishable>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <Platforms>AnyCPU;x64</Platforms>
+    <PackageLicenseFile>License</PackageLicenseFile>
+
+    <Authors>© exc-jdbi 2022</Authors>
+    <Product>© Steganography 2022</Product>
+    <Company>© exc-jdbi 2022</Company>
+    <Copyright>© Steganography 2022 created by © exc-jdbi 2022</Copyright>
+    <IsPublishable>False</IsPublishable>
+    <Description>A very simple steganography program to show how to implement something like this. Written in C#.
+License is enclosed. </Description>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+  </ItemGroup>
+
+</Project>
