@@ -2,8 +2,6 @@
 using System.Diagnostics;
 using System.Security.Cryptography;
 
-//Bis jetzt in all getesteten Anwendungen ThreadSave
-
 namespace exc.jdbi.Randoms
 {
   /// <summary>
