@@ -1,6 +1,8 @@
 # Steganography
 Simple tool that shows how steganography works.
 
+![start](https://user-images.githubusercontent.com/16734383/167116199-2acccba7-b511-44e9-bb20-871be134e076.png)
+
 ![EncryptionImage](https://user-images.githubusercontent.com/16734383/167115826-fee4bd0c-5082-4beb-9748-3f5eb55a81b8.png)
 
 ![EncryptionText](https://user-images.githubusercontent.com/16734383/167115976-9ca11894-dae2-4743-bf7a-888872502553.png)
