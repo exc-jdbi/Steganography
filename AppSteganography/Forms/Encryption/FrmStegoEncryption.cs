@@ -119,7 +119,12 @@ internal partial class FrmStegoEncryption : Form
     this.StorageVerifyCalculation();
   }
 
-  internal void ResetAllControls()
+  private void FrmStegoEncryption_FormClosing(object sender, FormClosingEventArgs e)
+  {
+    this.ResetAllControls();
+  }
+
+  private void ResetAllControls()
   {
     this.ResetPictureBoxImage(this.PbHideImage);
     this.ResetPictureBoxImage(this.PbBasicImage);
