@@ -85,6 +85,11 @@ internal partial class FrmStegoDecryption : Form
   private void PictureBox_DragLeave(object sender, EventArgs e)
   {
 
+  } 
+
+  private void FrmStegoDecryption_FormClosing(object sender, FormClosingEventArgs e)
+  {
+    this.ResetAllControls();
   }
 
   private bool SetFilename(DragEventArgs e)
@@ -250,7 +255,7 @@ internal partial class FrmStegoDecryption : Form
     return result;
   }
 
-  internal void ResetAllControls()
+  private void ResetAllControls()
   {
     this.ResetPictureBoxImage(this.PbHideImage);
     this.ResetPictureBoxImage(this.PbBasicImage);
@@ -328,4 +333,5 @@ internal partial class FrmStegoDecryption : Form
     pb.InitialImage = null;
     pb.Update();
   }
+
 }
