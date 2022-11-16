@@ -4,6 +4,8 @@ namespace exc.jdbi.Stegographie.Forms.App;
 
 using exc.jdbi.Steganographie;
 using static exc.jdbi.ImageConvertings.ImageConverting;
+
+
 internal partial class FrmMain : Form
 {
   private bool IsVaildDragDrop = false;
@@ -56,16 +58,12 @@ internal partial class FrmMain : Form
 
   private void ToStegoFrm(bool frmencryption, char signchar = char.MinValue)
   {
-    if (!this.IsVaildDragDrop) return;
+    if (!this.IsVaildDragDrop) return; 
 
-    //Nach Schlissen von FrmStegoEncryption bzw. FrmStegodecryption
-    //werden die Forms korrekt zurückgesetzt. 
-    //Auch die Instanz von StegoEncryptionThread bzw. StegoDecryptionThread
-    //werden korrekt zurückgesetzt. 
+    var action = new Action<bool ,char>(this.ActionWork);
     if (frmencryption)
-      _ =new  StegoEncryptionThread(this,this.FileNamePath);
-    else _ = new StegoDecryptionThread(this, this.FileNamePath, signchar);
-
+      this.BeginInvoke(action, frmencryption, char.MinValue);
+    else this.BeginInvoke(action, frmencryption, signchar); 
     this.LbDragDrop.Font = new Font("Arial", 20F, FontStyle.Regular, GraphicsUnit.Point);
   }
 
@@ -86,5 +84,23 @@ internal partial class FrmMain : Form
     }
     return false;
   }
+
+  private void ActionWork(bool frmencryption, char signchar)
+  {
+    if (frmencryption)
+    {
+      //Encryption
+      using var frmenc = new FrmStegoEncryption(this.FileNamePath);
+      frmenc.TopMost = true;
+      if (DialogResult.Cancel == frmenc.ShowDialog())
+        this.FileNamePath = string.Empty;
+      return;
+    }
+    //Decryption
+    using var frmdec = new FrmStegoDecryption(this.FileNamePath, signchar);
+    frmdec.TopMost = true;
+    if (DialogResult.Cancel == frmdec.ShowDialog())
+      this.FileNamePath = string.Empty;
+  } 
 
 }
